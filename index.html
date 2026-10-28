@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+  📺 BINGE FINDER — index.html
+  Day 13 · Consuming a REST API
+
+  This file is the skeleton of the page. It has NO data in it.
+  scripts.js fills it in with real TV shows from the internet.
+
+  Every element that scripts.js needs has an id="...".
+  scripts.js finds them with document.getElementById("...").
+
+    id="search"  → the search box
+    id="status"  → where the 4 moods show up (⏳ 🎉 🫥 💥)
+    id="list"    → where the show cards go
+    id="detail"  → where the clicked show's details go
+
+  How to run it: right-click index.html → Open with Live Server.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Binge Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>📺 Binge Finder</h1>
+
+      <!-- The label's for="search" matches the input's id="search". -->
+      <label for="search">Search shows</label>
+      <input id="search" type="search" placeholder="name or genre" autocomplete="off" />
+
+      <!--
+        One spot for every mood message.
+        role="status" + aria-live="polite" means screen readers
+        announce the message when it changes.
+      -->
+      <p id="status" role="status" aria-live="polite"></p>
+    </header>
+
+    <main>
+      <section aria-labelledby="list-heading">
+        <h2 id="list-heading">Results</h2>
+        <!-- Empty on purpose. scripts.js appends a card here for every show. -->
+        <ul id="list"></ul>
+      </section>
+
+      <section aria-labelledby="detail-heading">
+        <h2 id="detail-heading">Details</h2>
+        <!-- Empty on purpose. scripts.js fills this when you click a card. -->
+        <div id="detail">
+          <p>👆 Click a show to see its details.</p>
+        </div>
+      </section>
+    </main>
+
+    <!--
+      The script goes LAST, right before </body>.
+      By the time it runs, every element above already exists,
+      so getElementById can find them.
+    -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
